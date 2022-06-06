@@ -1,25 +1,14 @@
-
-const App = {
-  type: 'div',
-  children: [
-    {
-      type: 'input',
-      props: { type: 'test', id: 'username' },
-      children: []
-    },
-    {
-      type:'button',
-      props: {},
-      children: ['click']
-    },
-    {
-      type: 'ul',
-      props: null,
-      children: [
-        {type: 'li', props: null, children: ['#1']},
-        {type: 'li', props: null, children: ['#2']},
-        {type: 'li', props: null, children: ['#3']},
-      ]
-    }
-  ]
+function createElement(type, props, ...children) {
+  return { type, props, children };
 }
+
+const App = createElement('div', null,
+  createElement('input', { type: 'text' }),
+  createElement('button', null, 'click'),
+  createElement('ul', null,
+    createElement('li', null, '#1'),
+    createElement('li', null, '#2'),
+    createElement('li', null, '#3'),
+  ),
+)
+
